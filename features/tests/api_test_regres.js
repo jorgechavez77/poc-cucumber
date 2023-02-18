@@ -1,9 +1,12 @@
 const pactum = require('pactum')
 const { Given, When, Then, Before, After } = require('@cucumber/cucumber')
+const { request, settings } = require('pactum')
 
 let spec = pactum.spec()
 
 Before(() => {
+  request.setBaseUrl('https://reqres.in')
+  settings.setReporterAutoRun(false)
   spec = pactum.spec()
 })
 
